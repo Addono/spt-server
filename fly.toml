@@ -1,0 +1,41 @@
+app = 'spt-addono'
+
+primary_region = 'ams'
+kill_signal = 'SIGINT'
+kill_timeout = '5s'
+swap_size_mb = 1024
+
+[build]
+  image = 'ghcr.io/zhliau/fika-spt-server-docker:latest'
+
+[env]
+  UID = '1000'
+  GID = '1000'
+  TZ = 'Europe/Berlin'
+  INSTALL_FIKA = 'true'
+  FIKA_VERSION = 'v2.3.6'
+  AUTO_UPDATE_SPT = 'true'
+  AUTO_UPDATE_FIKA = 'true'
+  TAKE_OWNERSHIP = 'true'
+  ENABLE_PROFILE_BACKUPS = 'true'
+  LISTEN_ALL_NETWORKS = 'true'
+
+[[mounts]]
+  source = 'spt'
+  destination = '/opt/server'
+  auto_extend_size_threshold = 80
+  auto_extend_size_increment = "1GB"
+  auto_extend_size_limit = "3GB"
+
+[http_service]
+  internal_port = 6969
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '2gb'
+  cpu_kind = 'shared'
+  cpus = 2
