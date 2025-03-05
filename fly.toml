@@ -23,7 +23,8 @@ swap_size_mb = 1024
   MOD_URLS_TO_DOWNLOAD = '''
   https://github.com/c-orter/ModSync/releases/download/v0.10.2/Corter-ModSync-v0.10.2.zip
   https://github.com/project-fika/Fika-Plugin/releases/download/v1.1.5.0/Fika.Release.1.1.5.0.zip
-  
+  https://github.com/project-fika/Fika-Dedicated/releases/download/v1.2.4/Fika.Dedicated.1.2.4.zip
+
   https://github.com/VirtualAE/Virtuals-Custom-Quest-Loader/releases/download/2.0.3/VCQL-2.0.3.zip
   https://github.com/LunaAufLock/LotusTrader/releases/download/v1.4.8/Lotus_v1.4.8_for_SPT_3.10_by_Lunnayaluna.7z
   https://drive.usercontent.google.com/download?id=1lKOXv7114wtUqhB8_orUbR9o2Y5aArPD&export=download&authuser=0
