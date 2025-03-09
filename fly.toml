@@ -3,7 +3,9 @@ app = 'spt-addono'
 primary_region = 'ams'
 kill_signal = 'SIGINT'
 kill_timeout = '5s'
-swap_size_mb = 1024
+## Disabled as to allow suspending the server, which leads to faster boots. Re-enable when 
+## going out of memory and not wanting to provision a larger server.
+# swap_size_mb = 1024  ## Mutually exclusive with auto_stop_machines in "suspend"-mode
 
 [build]
   image = 'ghcr.io/zhliau/fika-spt-server-docker:3.10.5'
@@ -65,7 +67,7 @@ swap_size_mb = 1024
   internal_port = 6969
   force_https = false
   auto_start_machines = true
-  auto_stop_machines = "suspend"
+  auto_stop_machines = "suspend"  # Only available when not using swap
   min_machines_running = 0
   max_machines_running = 1
   processes = ["app"]
