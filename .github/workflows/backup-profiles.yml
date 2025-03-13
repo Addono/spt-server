@@ -1,0 +1,37 @@
+name: Backup Profiles
+
+on:
+  workflow_dispatch:  # Manual triggering
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Fly CLI
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Ensure machine is running and download profiles
+        run: |
+          MACHINE_ID=$(flyctl machine list --json | jq ".[0].id" -r)
+          flyctl machine start $MACHINE_ID
+          
+          # Download profiles
+          echo "get /opt/server/user/profiles/" | flyctl sftp shell
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Upload profiles as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: profiles-backup-${{ steps.date.outputs.date }}
+          path: profiles.zip
+          retention-days: 30  # Keep backups for a week
