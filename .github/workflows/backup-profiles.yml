@@ -18,13 +18,17 @@ jobs:
       - name: Set up Fly CLI
         uses: superfly/flyctl-actions/setup-flyctl@master
 
-      - name: Ensure machine is running and download profiles
+      - name: Backup and download profiles
         run: |
+          # Make sure at least one machine is running
           MACHINE_ID=$(flyctl machine list --json | jq ".[0].id" -r)
           flyctl machine start $MACHINE_ID
           
-          # Download profiles
-          echo "get /opt/server/user/profiles/" | flyctl sftp shell
+          # SSH into the machine to create a 7z archive in /tmp
+          flyctl ssh console -C "7zz a /tmp/profiles.7z /opt/server/user/profiles/"
+          
+          # Download the 7z file
+          echo "get /tmp/profiles.7z" | flyctl sftp shell
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
@@ -36,5 +40,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: profiles-backup-${{ steps.date.outputs.date }}
-          path: profiles.zip
-          retention-days: 30  # Keep backups for a week
+          path: profiles.7z
+          retention-days: 30  # Keep backups for a month
