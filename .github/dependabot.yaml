@@ -11,6 +11,9 @@ updates:
       - "addono"
     commit-message:
       prefix: "feat(deps):"
+    ignore:
+      - dependency-name: "ghcr.io/zhliau/fika-spt-server-docker"
+        versions: [">= 4"]
 
   - package-ecosystem: "github-actions"
     directory: "/"
