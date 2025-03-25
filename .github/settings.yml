@@ -1,0 +1,79 @@
+repository:
+  # See https://developer.github.com/v3/repos/#edit for all available settings.
+
+  # The name of the repository. Changing this will rename the repository
+  name: spt-server
+
+  # A short description of the repository that will show up on GitHub
+  description: Fly.io deployment configuration for SPT Server
+
+  # A comma-separated list of topics to set on the repository
+  topics: SPT, Tarkov, game-server, self-hosted
+
+  # A URL with more information about the repository
+  homepage: https://spt-addono.fly.dev/
+
+  # Either `true` to make the repository private, or `false` to make it public.
+  private: true
+
+  # Either `true` to enable issues for this repository, `false` to disable them.
+  has_issues: true
+
+  # Either `true` to enable the wiki for this repository, `false` to disable it.
+  has_wiki: true
+
+  # Either `true` to enable downloads for this repository, `false` to disable them.
+  has_downloads: false
+
+  # Updates the default branch for this repository.
+  default_branch: main
+
+  # Either `true` to allow squash-merging pull requests, or `false` to prevent
+  # squash-merging.
+  allow_squash_merge: true
+
+  # Either `true` to allow merging pull requests with a merge commit, or `false`
+  # to prevent merging pull requests with merge commits.
+  allow_merge_commit: false
+
+  # Either `true` to allow rebase-merging pull requests, or `false` to prevent
+  # rebase-merging.
+  allow_rebase_merge: true
+
+  # Either `true` to delete head branches when pull requests are merged, or `false`
+  delete_branch_on_merge: true
+
+  # Either `true` to enable automated security fixes, or `false` to disable
+  # automated security fixes.
+  enable_automated_security_fixes: true
+
+  # Either `true` to enable vulnerability alerts, or `false` to disable
+  # vulnerability alerts.
+  enable_vulnerability_alerts: true
+
+# Labels: define labels for Issues and Pull Requests
+labels:
+  - name: bug
+    color: CC0000
+    description: Something isn't working as expected
+  - name: deployment
+    color: fbca04
+    description: Changes related to Fly.io deployment
+  - name: configuration
+    color: 0075ca
+    description: Changes to application configuration
+  - name: dependencies
+    color: 0366d6
+    description: Updates to dependencies
+  - name: docker
+    color: 2088FF
+    description: Changes to Docker configuration
+  - name: documentation
+    color: 0075ca
+    description: Improvements or additions to documentation
+  - name: GitHub Actions
+    color: 2088FF
+    description: Changes to GitHub Actions workflows
+  - name: enhancement
+    color: 84b6eb
+    description: New feature or request
