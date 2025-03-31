@@ -31,6 +31,30 @@ else
     echo "No SVM build-config directory found, skipping that step."
 fi
 
+# Fix Croupier mod to be Linux-compatible
+echo "Checking for Croupier mod to fix require statements..."
+
+if [ -d "/opt/server/user/mods/zcroupier/" ]; then
+    echo "Croupier mod folder found, fixing require statements..."
+    
+    # Count fixed files for reporting
+    FIXED_FILES=0
+    
+    # Find all .js files in the directory and fix the require paths
+    while IFS= read -r file; do
+        # Check if the file contains problematic require statements
+        if grep -q 'require("C:/snapshot/project/' "$file"; then
+            echo "Fixing file: $file"
+            sed -i 's|require("C:/snapshot/project/|require("/snapshot/project/|g' "$file"
+            FIXED_FILES=$((FIXED_FILES + 1))
+        fi
+    done < <(find /opt/server/user/mods/zcroupier/ -type f -name "*.js")
+    
+    echo "Croupier mod fix completed. Fixed $FIXED_FILES files."
+else
+    echo "No Croupier mod folder found, skipping path fixes."
+fi
+
 echo "SPT server setup completed. Starting server..."
 
 # Execute the original entrypoint
