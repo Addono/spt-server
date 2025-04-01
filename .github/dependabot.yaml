@@ -8,7 +8,7 @@ updates:
       - "docker"
       - "dependencies"
     assignees:
-      - "addono"
+      - "Addono"
     commit-message:
       prefix: "feat(deps):"
     ignore:
@@ -22,6 +22,6 @@ updates:
     labels:
       - "GitHub Actions"
     assignees:
-      - "addono"
+      - "Addono"
     commit-message:
       prefix: "ci(deps):"
