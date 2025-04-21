@@ -1,4 +1,4 @@
-app = 'spt-addono'
+app = '<SERVER_NAME>'
 
 primary_region = 'ams'
 kill_signal = 'SIGINT'
@@ -15,7 +15,7 @@ kill_timeout = '5s'
   GID = '1000'
   TZ = 'Europe/Berlin'
   INSTALL_FIKA = 'true'
-  FIKA_VERSION = 'v2.3.6'
+  FIKA_VERSION = 'v2.4.6'
   AUTO_UPDATE_SPT = 'true'
   AUTO_UPDATE_FIKA = 'true'
   TAKE_OWNERSHIP = 'true'
@@ -23,40 +23,33 @@ kill_timeout = '5s'
   LISTEN_ALL_NETWORKS = 'true'
   INSTALL_OTHER_MODS = 'true'
   MOD_URLS_TO_DOWNLOAD = '''
-  https://github.com/c-orter/ModSync/releases/download/v0.10.2/Corter-ModSync-v0.10.2.zip
-  https://github.com/project-fika/Fika-Plugin/releases/download/v1.1.5.0/Fika.Release.1.1.5.0.zip
-  https://github.com/project-fika/Fika-Dedicated/releases/download/v1.2.4/Fika.Dedicated.1.2.4.zip
+  https://github.com/c-orter/ModSync/releases/download/v0.11.1/Corter-ModSync-v0.11.1.zip
+  https://github.com/project-fika/Fika-Plugin/releases/download/v1.2.6/Fika.Release.1.2.6.0.zip
+  https://github.com/project-fika/Fika-Headless/releases/download/v1.3.5/Fika.Headless.1.3.5.zip
 
-  https://github.com/VirtualAE/Virtuals-Custom-Quest-Loader/releases/download/2.0.3/VCQL-2.0.3.zip
-  https://github.com/LunaAufLock/LotusTrader/releases/download/v1.4.10/Lotus_v1.4.10_for_SPT_3.10_by_Lunnayaluna.7z
-  https://drive.usercontent.google.com/download?id=1lKOXv7114wtUqhB8_orUbR9o2Y5aArPD&export=download&authuser=0
+  https://github.com/VirtualAE/Virtuals-Custom-Quest-Loader/releases/download/2.0.4/VCQL-2.0.4.zip
+  https://github.com/LunaAufLock/LotusTrader/releases/download/v1.5.2/Lotus_v1.5.2_for_SPT_3.11_by_Lunnayaluna.7z
 
-  https://github.com/GhostFenixx/SVM/releases/download/v.1.10.1H1/SVM.Server.Value.Modifier1.10.1H1.zip
+  https://github.com/GhostFenixx/SVM/releases/download/v1.11.1/SVM.Server.Value.Modifier1.11.1.zip
   
-  https://github.com/No3371/SPT_ThatsLit/releases/download/1.3100.3/ThatsLit_1.3100.3.zip
-  https://cdn.discordapp.com/attachments/1245739513481924739/1313354695510589592/ThatsLitSync_1.3100.3.zip?ex=67c08ca0&is=67bf3b20&hm=cecb64b2273b78cb306aa7557d43765049cc3d0e8f8f3b44cb8cd860c8ce37a5&
-  https://github.com/tyfon7/UIFixes/releases/download/v3.1.3/Tyfon-UIFixes-3.1.3.zip
+  https://github.com/tyfon7/UIFixes/releases/download/v4.1.2/Tyfon-UIFixes-4.1.2.zip
   https://github.com/CWXDEV/Kaeno-TraderScrolling/releases/download/1.2.0/Kaeno-TraderScrolling.-.1.2.0.zip
-  https://github.com/TadMaj/Tarkov-QuickSell/releases/download/2.0.1/Quicksell-2.0.1.zip
-  https://dev.sp-tarkov.com/IcyClawz/ClientMods/releases/download/3.10.0/MunitionsExpert-1.5.0.zip
-  https://github.com/Markosz22/StashManagementHelper/releases/download/v0.1.4/StashManagementHelper.0.1.4.7z
-  https://github.com/user-attachments/files/18662337/delod-arenalockboxmod.zip
-  https://github.com/danx91/AllQuestsCheckmarks/releases/download/v1.1.0/allquestscheckmarks-1.1.0-spt-3.10.5.zip
-  https://github.com/peinwastaken/shadowflickerfix/releases/download/1.0.4/shadowflickerfix.zip
-  https://github.com/CJ-SPT/StashSearch/releases/download/V1.4.0/StashSearch.7z
-  https://github.com/CJ-SPT/Expanded-Task-Text/releases/download/V1.6.2/ExpandedTaskText.7z
+  https://github.com/TadMaj/Tarkov-QuickSell/releases/download/2.1.0/Quicksell-2.1.0.zip
+  https://drive.usercontent.google.com/download?id=1KJRRXNaolsxcqBgmxlU0SWaJRGml6RHy&export=download&authuser=0
+  https://github.com/Markosz22/StashManagementHelper/releases/download/v0.1.5/StashManagementHelper.0.1.5.7z
+  https://github.com/danx91/AllQuestsCheckmarks/releases/download/v1.2.3/allquestscheckmarks-1.2.3-spt-3.11.zip
+  https://github.com/peinwastaken/shadowflickerfix/releases/download/1.0.5/shadowflickerfix.zip
+  https://github.com/CJ-SPT/StashSearch/releases/download/V1.4.1/StashSearch.7z
+  https://github.com/CJ-SPT/Expanded-Task-Text/releases/download/V1.6.3/ExpandedTaskText.7z
 
-  https://github.com/DrakiaXYZ/SPT-BigBrain/releases/download/1.2.0/DrakiaXYZ-BigBrain-1.2.0.7z
-  https://github.com/DrakiaXYZ/SPT-Waypoints/releases/download/1.6.2/DrakiaXYZ-Waypoints-1.6.2.7z
-  https://github.com/Skwizzy/SPT-LootingBots/releases/download/v1.4.1-spt-3.10/Skwizzy-LootingBots-1.4.1.zip
-  https://github.com/Solarint/SAIN/releases/download/v3.2.1-Release/SAIN-3.2.1-Release.7z
-  https://github.com/Lacyway/NerfBotGrenades/releases/download/v1.0/NerfBotGrenades.zip
-  https://github.com/acidphantasm/acidphantasm-apbs/releases/download/1.7.3/acidphantasm-progressivebotsystem.zip
-  https://github.com/acidphantasm/acidphantasm-defaultfiremode/releases/download/1.2.0/acidphantasm-defaultfiremode.zip
-  https://github.com/Lacyway/HandsAreNotBusy/releases/download/1.4/HandsAreNotBusy.zip
-  https://github.com/Lacyway/ContinuousHealing/releases/download/v1.2.0/ContinuousHealing.zip
-  https://github.com/IhanaMies/HealingAutoCancel/releases/download/3.0.1/IhanaMies-HealingAutoCancel-301.7z
-  https://github.com/refringe/CustomRaidTimes/releases/download/v1.8.0/refringe-customraidtimes-1.8.0.zip
+  https://github.com/DrakiaXYZ/SPT-Waypoints/releases/download/1.7.0/DrakiaXYZ-Waypoints-1.7.0.7z
+  https://github.com/Skwizzy/SPT-LootingBots/releases/download/v1.5.2-spt-3.11/Skwizzy-LootingBots-1.5.2.zip
+  https://github.com/Lacyway/NerfBotGrenades/releases/download/v1.1/NerfBotGrenades.zip
+  https://github.com/acidphantasm/acidphantasm-apbs/releases/download/1.8.2/acidphantasm-progressivebotsystem.zip
+  https://github.com/acidphantasm/acidphantasm-defaultfiremode/releases/download/1.3.0/acidphantasm-defaultfiremode.zip
+  https://github.com/Lacyway/HandsAreNotBusy/releases/download/1.5/HandsAreNotBusy.zip
+  https://github.com/Lacyway/ContinuousHealing/releases/download/v1.3.0/ContinuousHealing.zip
+  https://github.com/IhanaMies/HealingAutoCancel/releases/download/4.0.0/IhanaMies-HealingAutoCancel-400.7z
   '''
 
 # https://github.com/ekky-llc/spt-raid-review/releases/download/v0.3.0/raid_review__0.3.0_linux.tar.gz
