@@ -37,6 +37,8 @@
     "RemoveBackpacksRestrictions": false,
     "AvoidSingleKeys": false,
     "AvoidMarkedKeys": false,
+    "AvoidResidential": false,
+    "AvoidOddKeys": false,
     "KeyUseMult": 1,
     "KeycardUseMult": 1,
     "KeyDurabilityThreshold": 40,
@@ -82,6 +84,7 @@
     "CultistTime": 1,
     "CultistMaxRewards": 5,
     "RemoveConstructionsRequirements": false,
+    "RemoveConstructionsFIRRequirements": false,
     "RemoveSkillRequirements": false,
     "RemoveTraderLevelRequirements": false,
     "EnableHideout": true,
@@ -112,6 +115,7 @@
       "Fence": 40,
       "Prapor": 50,
       "Jaeger": 60,
+      "Ref": 56,
       "Mechanic": 56,
       "Skier": 49,
       "Therapist": 63
@@ -123,6 +127,7 @@
       "Jaeger": 1,
       "Mechanic": 1,
       "Skier": 1,
+      "Ref": 1,
       "Therapist": 1
     },
     "MinDurabSell": 60,
@@ -311,7 +316,7 @@
   },
   "Raids": {
     "SandboxAccessLevel": 20,
-    "RaidTime": 0,
+    "RaidTime": 120,
     "SaveQuestItems": false,
     "Exfils": {
       "CarSandbox": 5000,
@@ -370,7 +375,7 @@
       "GlukharLabs": false
     },
     "LabInsurance": false,
-    "EnableRaids": false,
+    "EnableRaids": true,
     "Removelabkey": false,
     "EnableCarCoop": false,
     "ForceBTRFriendly": false,
@@ -513,6 +518,7 @@
       "MaxItems": 5,
       "Extracts": 3,
       "Types": 6,
+      "Reroll": 0,
       "Spread": 0.5,
       "MinKillsLR1": 2,
       "MaxKillsLR1": 4,
@@ -537,6 +543,7 @@
       "MaxItems": 5,
       "Extracts": 10,
       "Types": 6,
+      "Reroll": 0,
       "Spread": 0.5,
       "MinKillsLR1": 10,
       "MaxKillsLR1": 20,
@@ -560,6 +567,7 @@
       "MaxItems": 5,
       "Extracts": 3,
       "Types": 2,
+      "Reroll": 0,
       "Spread": 0.5,
       "MinKillsLR1": 1,
       "MaxKillsLR1": 3,
@@ -706,6 +714,11 @@
       "StreamerCase": {
         "Height": 11,
         "Width": 7,
+        "Filter": false
+      },
+      "ArmorPlateCase": {
+        "Height": 12,
+        "Width": 8,
         "Filter": false
       }
     },
