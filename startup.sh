@@ -24,12 +24,30 @@ else
 fi
 
 # Check if the build-config directory exists
+## Add custom files to SVM installation
 if [ -d "/build-config/user/mods/[SVM] Server Value Modifier/" ]; then
-    echo "Copying SVM mod from build-config directory..."
-    cp -r "/build-config/user/mods/[SVM] Server Value Modifier/"* "/opt/server/user/mods/[SVM] Server Value Modifier/" || echo "Warning: Could not copy from build-config directory, but continuing..."
+    if [ -d "/opt/server/user/mods/[SVM] Server Value Modifier/" ]; then
+        echo "Copying SVM mod from build-config directory..."
+        cp -r "/build-config/user/mods/[SVM] Server Value Modifier/"* "/opt/server/user/mods/[SVM] Server Value Modifier/" || echo "Warning: Could not copy from build-config directory, but continuing..."
+    else
+        echo "Target SVM directory does not exist, skipping copy operation. Restart the server after the mods have been installed"
+    fi
 else
     echo "No SVM build-config directory found, skipping that step."
 fi
+
+## Add custom files to Lotus installation
+if [ -d "/build-config/user/mods/Lunnayaluna Lotus" ]; then
+    if [ -d "/opt/server/user/mods/Lunnayaluna Lotus" ]; then
+        echo "Copying Lotus mod from build-config directory..."
+        cp -r "/build-config/user/mods/Lunnayaluna Lotus/"* "/opt/server/user/mods/Lunnayaluna Lotus/" || echo "Warning: Could not copy from build-config directory, but continuing..."
+    else
+        echo "Target Lotus directory does not exist, skipping copy operation. Restart the server after the mods have been installed"
+    fi
+else
+    echo "No Lotus build-config directory found, skipping that step."
+fi
+
 
 # Fix Croupier mod to be Linux-compatible
 echo "Checking for Croupier mod to fix require statements..."
@@ -54,6 +72,8 @@ if [ -d "/opt/server/user/mods/zcroupier/" ]; then
 else
     echo "No Croupier mod folder found, skipping path fixes."
 fi
+
+
 
 echo "SPT server setup completed. Starting server..."
 
