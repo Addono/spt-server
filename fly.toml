@@ -80,10 +80,10 @@ kill_timeout = '5s'
   protocol = "tcp"
   
   [[services.ports]]
-    handlers = ["tls", "http"]
+    # handlers = ["tls"] ## Omitting to let the app handle TLS termination by itself
     port = 6969
 
 [[vm]]
-  memory = '3gb'
+  memory = '4gb'
   cpu_kind = 'shared'
   cpus = 2
