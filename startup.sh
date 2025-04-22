@@ -52,7 +52,7 @@ fi
 # Fix Croupier mod to be Linux-compatible
 echo "Checking for Croupier mod to fix require statements..."
 
-if [ -d "/opt/server/user/mods/zcroupier/" ]; then
+if [ -d "/opt/server/user/mods/croupier/" ]; then
     echo "Croupier mod folder found, fixing require statements..."
     
     # Count fixed files for reporting
@@ -66,13 +66,12 @@ if [ -d "/opt/server/user/mods/zcroupier/" ]; then
             sed -i 's|require("C:/snapshot/project/|require("/snapshot/project/|g' "$file"
             FIXED_FILES=$((FIXED_FILES + 1))
         fi
-    done < <(find /opt/server/user/mods/zcroupier/ -type f -name "*.js")
+    done < <(find /opt/server/user/mods/croupier/ -type f -name "*.js")
     
     echo "Croupier mod fix completed. Fixed $FIXED_FILES files."
 else
     echo "No Croupier mod folder found, skipping path fixes."
 fi
-
 
 
 echo "SPT server setup completed. Starting server..."
