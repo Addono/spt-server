@@ -84,7 +84,7 @@
     "CultistTime": 1,
     "CultistMaxRewards": 5,
     "RemoveConstructionsRequirements": false,
-    "RemoveConstructionsFIRRequirements": false,
+    "RemoveConstructionsFIRRequirements": true,
     "RemoveSkillRequirements": false,
     "RemoveTraderLevelRequirements": false,
     "EnableHideout": true,
