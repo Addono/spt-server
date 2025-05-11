@@ -48,6 +48,15 @@ else
     echo "No Lotus build-config directory found, skipping that step."
 fi
 
+# Remove all .exe files from the mods directory
+echo "Removing Windows executable (.exe) files from mods directory..."
+EXE_COUNT=0
+while IFS= read -r exe_file; do
+    echo "Removing: $exe_file"
+    rm -f "$exe_file"
+    EXE_COUNT=$((EXE_COUNT + 1))
+done < <(find /opt/server/user/mods/ -type f -name "*.exe")
+echo "Removed $EXE_COUNT .exe files from mods directory."
 
 # Fix Croupier mod to be Linux-compatible
 echo "Checking for Croupier mod to fix require statements..."
@@ -72,7 +81,6 @@ if [ -d "/opt/server/user/mods/croupier/" ]; then
 else
     echo "No Croupier mod folder found, skipping path fixes."
 fi
-
 
 echo "SPT server setup completed. Starting server..."
 
