@@ -1,4 +1,4 @@
-app = '<SERVER_NAME>'
+# name = "<SERVER_NAME>"
 
 primary_region = 'ams'
 kill_signal = 'SIGINT'

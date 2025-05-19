@@ -17,7 +17,7 @@ Create an app on Fly.io:
 flyctl apps create <SERVER NAME>
 ```
 
-Update the `fly.toml` file with your server name:
+Update the `fly.toml` file with your server name, add a new line:
 
 ```toml
 app = "<SERVER NAME>"
