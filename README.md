@@ -1,6 +1,6 @@
 # SPT Server
 
-This creates hosting configuratiopn for an SPT server on Fly.io.
+This creates hosting configuration for an SPT server on Fly.io.
 
 ## Setup
 
