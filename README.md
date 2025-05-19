@@ -1,6 +1,19 @@
 # SPT Server
 
-This creates hosting configuration for an SPT server on Fly.io.
+This repository helps creating and managing an SPT server on [Fly.io](https://fly.io).
+
+## What's Included
+
+This repository provides a simple setup for hosting a modded SPT (Single Player Tarkov) server on Fly.io. It automates deployment, mod management, scaling, and backups, making it easy to run and maintain a custom Tarkov server in the cloud with minimal manual intervention and on a budget.
+
+Among other things, it includes:
+
+- **Fly.io deployment configuration**: Pre-configured `fly.toml` and Dockerfile to deploy the SPT server to Fly.io, including automatic scale-to-zero when no users are connected to the server.
+- **Automated mod installation**: Installs a curated set of mods automatically from URLs defined in `fly.toml`.
+- **Custom mod configuration**: Example custom configs for mods (e.g., SVM and Lotus) included in the `mount/` directory. This config is automatically copied to the server on deployment, making it easier to manage it from Git and avoiding the need to SSH into the server.
+- **Automated Startup Modifications**: Handles mod setup, applying config stored in Git, and applies Linux compatibility fixes on container start.
+- **Automated Backups**: Daily backups of player profiles using GitHub Actions, storing them as artifacts in the repository. This allows you to restore player profiles in case of profile corruption or data loss.
+- **Remote Deploys**: Deploys can either be triggered locally or remotely via GitHub Actions, allowing you to manage the server from anywhere.
 
 ## Setup
 
@@ -30,6 +43,18 @@ fly deploy
 ```
 
 In the output, you will see a URL like `https://<SERVER NAME>.fly.dev` where your SPT server is now running. In your SPT launcher, you can now configure it to connect to `https://<SERVER NAME>.fly.dev:6969`.
+
+Clients with ModSync installed will automatically download all required mods on boot, as such it's highly recommended that all clients do this.
+
+After the first deployment, it is important to check whether all mods have been successfully downloaded and extracted. You can do this by SSHing into the server and checking the folder `./mod_downloads/remains`:
+
+```bash
+❯ fly ssh console
+Connecting to <your server IP>... complete
+root@<machine ID>:/opt/server# cd mod_download/remains/
+```
+Any files in this folder are mods that have not been successfully downloaded or extracted. Manually move them to the `./mods` folder to make them available to the server. For more information on how to manage mods, see [fika-spt-server-docker](https://github.com/zhliau/fika-spt-server-docker?tab=readme-ov-file#-running) documentation.
+
 
 ### (Optional) GitHub Repository
 
@@ -73,3 +98,4 @@ You can tweak the resources available to the server in the `fly.toml` file, for 
 The only constant-cost would be storage, which is a couple of cents per GB per month.
 
 In our experiences, our bill has been around $2-3 a month. Fly.io typically doesn't invoice you for bills under $5 each month, thus the server has effectively been free.
+
