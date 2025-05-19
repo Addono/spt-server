@@ -19,32 +19,7 @@ jobs:
         uses: superfly/flyctl-actions/setup-flyctl@master
 
       - name: Backup and download profiles
-        run: |
-          # Get machine ID
-          MACHINE_ID=$(flyctl machine list --json | jq ".[0].id" -r)
-          echo "Working with machine ID: $MACHINE_ID"
-          
-          # First attempt to start the machine
-          if ! flyctl machine start $MACHINE_ID 2>&1 | tee start_output.txt; then
-            # Check if it failed due to suspending state
-            if grep -q "suspending" start_output.txt; then
-              echo "Machine is suspending. Waiting 10 seconds before retrying..."
-              sleep 10
-              # Retry once more
-              flyctl machine start $MACHINE_ID
-            else
-              # If it failed for any other reason, show the error and exit
-              echo "Failed to start machine due to non-suspending issue:"
-              cat start_output.txt
-              exit 1
-            fi
-          fi
-          
-          # SSH into the machine to create a 7z archive in /tmp
-          flyctl ssh console -C "7zz a /tmp/profiles.7z /opt/server/user/profiles/"
-          
-          # Download the 7z file
-          echo "get /tmp/profiles.7z" | flyctl sftp shell
+        run: ./scripts/download-backup-flyio.sh profiles.7z
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
