@@ -70,10 +70,6 @@ kill_timeout = '5s'
   https://github.com/DrakiaXYZ/SPT-UseLooseLoot/releases/download/1.4.0/Gaylatea-UseLooseLoot-1.4.0.7z
   '''
 
-# https://github.com/ekky-llc/spt-raid-review/releases/download/v0.3.0/raid_review__0.3.0_linux.tar.gz
-# 
-#  
-
 [[mounts]]
   source = 'spt'
   destination = '/opt/server'
