@@ -10,9 +10,6 @@ repository:
   # A comma-separated list of topics to set on the repository
   topics: SPT, Tarkov, game-server, self-hosted
 
-  # A URL with more information about the repository
-  homepage: https://spt-addono.fly.dev/
-
   # Either `true` to make the repository private, or `false` to make it public.
   private: true
 
