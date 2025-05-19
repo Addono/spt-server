@@ -1,4 +1,4 @@
-app = 'spt-addono-3-11'
+# name = "<SERVER_NAME>"
 
 primary_region = 'ams'
 kill_signal = 'SIGINT'
