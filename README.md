@@ -63,3 +63,13 @@ The GitHub Action for creating backups is configured to, on a schedule, pull dow
 **Schedule**: Backups run daily at 00:00 UTC. To change this, edit the `schedule` in [`.github/workflows/backup-profiles.yml`](.github/workflows/backup-profiles.yml). 
 
 **Testing** To test the action instead of waiting for the schedule to kick-in, you can manually dispatch it.
+
+## Cost
+
+This setup is designed to be budget-friendly. The pricing model of Fly.io is pay-per-use. In addition, the server will scale to zero when no users are connected, meaning you only pay for the time the server is actually running.
+
+You can tweak the resources available to the server in the `fly.toml` file, for example, by changing the `vm.memory` and `vm.cpus` settings. The default settings are usually sufficient for a small SPT server with a few players.
+
+The only constant-cost would be storage, which is a couple of cents per GB per month.
+
+In our experiences, our bill has been around $2-3 a month. Fly.io typically doesn't invoice you for bills under $5 each month, thus the server has effectively been free.
