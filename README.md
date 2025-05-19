@@ -6,7 +6,42 @@ This creates hosting configuratiopn for an SPT server on Fly.io.
 
 ### Fly.io
 
-*To be added*
+> [!NOTE]  
+> This guide assumes you have a Fly.io account and the `flyctl` CLI tool installed. If you don't have these, please refer to the [Fly.io documentation](https://fly.io/docs/getting-started/) for setup instructions.
+
+First of all, pick a globally unique name for your server. This will be used as the subdomain for your server, e.g. `https://<SERVER NAME>.fly.dev`. Alternatively, omit it when creating the server and let Fly.io generate a random name for you.
+
+Create an app on Fly.io:
+
+```bash
+flyctl apps create <SERVER NAME>
+```
+
+Update the `fly.toml` file with your server name:
+
+```toml
+app = "<SERVER NAME>"
+```
+
+Now deploy your app:
+
+```bash
+fly deploy
+```
+
+In the output, you will see a URL like `https://<SERVER NAME>.fly.dev` where your SPT server is now running. In your SPT launcher, you can now configure it to connect to `https://<SERVER NAME>.fly.dev:6969`.
+
+### (Optional) GitHub Repository
+
+If you want to use this repository as a template for your own SPT server, you can fork this repository and store any changes you make in your fork. This is optional, but recommended if you want to keep track of changes or contribute back to the original repository.
+
+Login to GitHub and click on the fork-button on the top right of the page. This will create a copy of this repository in your GitHub account.
+
+Alternatively, if you have the GitHub CLI installed, you can fork the repository using the following command:
+
+```bash
+gh repo fork Addono/spt-server
+```
 
 ### (Optional) GitHub Actions
 
