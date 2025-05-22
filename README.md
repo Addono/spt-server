@@ -10,6 +10,7 @@ This repository helps creating and managing an SPT server on [Fly.io](https://fl
   - [GitHub Actions](#optional-github-actions)
     - [Backups](#backups)
 - [Cost](#cost)
+- [Customizing Your Server](#customizing-your-server)
 
 ## What's Included
 
@@ -107,3 +108,93 @@ You can tweak the resources available to the server in the `fly.toml` file, for 
 The only constant-cost would be storage, which is a couple of cents per GB per month.
 
 In our experiences, our bill has been around $2-3 a month. Fly.io typically doesn't invoice you for bills under $5 each month, thus the server has effectively been free.
+
+## Customizing Your Server
+
+You can easily customize your SPT server setup to fit your needs. Here are the main ways to tailor your deployment:
+
+### Adding or Removing Mods
+
+To add or remove mods, edit the `MOD_URLS_TO_DOWNLOAD` environment variable in your `fly.toml` file. This variable contains a list of mod download URLs. Simply add new URLs (one per line) to install more mods, or remove lines to exclude mods you don't want. Changes will take effect on the next deployment.
+
+- **File:** `fly.toml`
+- **Section:** `[env]` → `MOD_URLS_TO_DOWNLOAD`
+
+### Changing the SPT Version
+
+The SPT version is determined by the Docker image specified in your `Dockerfile`. To change the SPT version, update the image tag in the `FROM` line. For example:
+
+```
+FROM ghcr.io/zhliau/fika-spt-server-docker:3.11.3
+```
+
+Replace `3.11.3` with the desired version. See the [fika-spt-server-docker releases](https://github.com/zhliau/fika-spt-server-docker/pkgs/container/fika-spt-server-docker) for available tags.
+
+- **File:** `Dockerfile`
+- **Line:** `FROM ghcr.io/zhliau/fika-spt-server-docker:<version>`
+
+### Changing the Fika Version
+
+The Fika version is set in the `FIKA_VERSION` environment variable in your `fly.toml` file. To use a different version, change the value of `FIKA_VERSION`:
+
+```
+FIKA_VERSION = 'v2.4.8'
+```
+
+Replace `'v2.4.8'` with the version you want. Make sure the version is compatible with your chosen SPT version.
+
+- **File:** `fly.toml`
+- **Section:** `[env]` → `FIKA_VERSION`
+
+### Changing Server Resources and Provisioning
+
+You can further customize how your SPT server is provisioned on Fly.io by editing the `fly.toml` file. This allows you to balance cost, performance, and availability according to your needs.
+
+#### Adjusting Resources (CPU & Memory)
+
+The `[vm]` section in `fly.toml` controls the amount of memory and CPU allocated to your server:
+
+```toml
+[vm]
+  memory = '3gb'   # Increase for better performance, decrease to save cost
+  cpu_kind = 'shared' # Can be 'shared' or 'performance' (dedicated)
+  cpus = 2        # Number of CPU cores
+```
+- **More resources** improve server performance, especially with many mods or players, but increase cost.
+- **Fewer resources** reduce cost but may impact performance.
+
+#### Always-On vs. Scale-to-Zero
+
+By default, the server is configured to scale to zero (suspend) when not in use, minimizing costs:
+
+```toml
+[http_service]
+  auto_stop_machines = "suspend"  # Scale to zero when idle
+  min_machines_running = 0         # No always-on machines
+```
+- **To keep the server always on**, set `auto_stop_machines` to `false` and `min_machines_running` to `1`:
+  ```toml
+  [http_service]
+    auto_stop_machines = false
+    min_machines_running = 1
+  ```
+- **Tradeoff:** Always-on servers are more responsive but incur higher costs, as you pay for uptime even when no one is playing.
+
+#### Enabling Swap (Extra Memory)
+
+You can enable swap to provide extra (slower) memory, which can help avoid out-of-memory errors without increasing RAM size:
+
+```toml
+# swap_size_mb = 1024  # Enable for 1GB swap (uncomment to use)
+```
+- **Note:** Swap is not compatible with scale-to-zero (suspend mode). Only enable swap if your server is always on.
+- **Tradeoff:** Swap is slower than RAM but can prevent crashes due to memory exhaustion. Useful for mod-heavy servers.
+
+---
+
+For more details, see the comments in `fly.toml` and the [Fly.io documentation](https://fly.io/docs/reference/configuration/).
+
+For more advanced customizations, you can also provide custom mod configuration files in the `mount/user/mods/` directory. These will be automatically copied to the server on deployment.
+
+See the rest of this README and the codebase for more details on configuration and customization options.
+
