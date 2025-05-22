@@ -5,7 +5,7 @@ repository:
   name: spt-server
 
   # A short description of the repository that will show up on GitHub
-  description: Fly.io deployment configuration for SPT Server
+  description: Fly.io deployment configuration for hosting your own SPT Server
 
   # A comma-separated list of topics to set on the repository
   topics: SPT, Tarkov, game-server, self-hosted
