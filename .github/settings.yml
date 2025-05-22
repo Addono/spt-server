@@ -7,6 +7,9 @@ repository:
   # A short description of the repository that will show up on GitHub
   description: Fly.io deployment configuration for hosting your own SPT Server
 
+  # A link where more about this repository can be found
+  homepage: https://gh.aknapen.nl/spt-server/
+
   # A comma-separated list of topics to set on the repository
   topics: SPT, Tarkov, game-server, self-hosted
 
