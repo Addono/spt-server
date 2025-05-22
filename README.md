@@ -28,12 +28,14 @@ This repository provides a simple setup for hosting a modded SPT (Single Player 
 
 Among other things, it includes:
 
-- **Fly.io deployment configuration**: Pre-configured `fly.toml` and Dockerfile to deploy the SPT server to Fly.io, including automatic scale-to-zero when no users are connected to the server.
-- **Automated mod installation**: Installs a curated set of mods automatically from URLs defined in `fly.toml`.
-- **Custom mod configuration**: Example custom configs for mods (e.g., SVM and Lotus) included in the `mount/` directory. This config is automatically copied to the server on deployment, making it easier to manage it from Git and avoiding the need to SSH into the server.
-- **Automated Startup Modifications**: Handles mod setup, applying config stored in Git, and applies Linux compatibility fixes on container start.
-- **Automated Backups**: Daily backups of player profiles using GitHub Actions, storing them as artifacts in the repository. This allows you to restore player profiles in case of profile corruption or data loss.
-- **Remote Deploys**: Deploys can either be triggered locally or remotely via GitHub Actions, allowing you to manage the server from anywhere.
+- 🚀 **Fly.io deployment configuration**: Pre-configured `fly.toml` and Dockerfile to deploy the SPT server to Fly.io, including automatic scale-to-zero when no users are connected to the server.
+- 🛠️ **Automated mod installation**: Installs a curated set of mods automatically from URLs defined in `fly.toml`.
+- ⚙️ **Custom mod configuration**: Example custom configs for mods (e.g., SVM and Lotus) included in the `mount/` directory. This config is automatically copied to the server on deployment, making it easier to manage it from Git and avoiding the need to SSH into the server.
+- 🔄 **Automated Startup Modifications**: Handles mod setup, applying config stored in Git, and applies Linux compatibility fixes on container start.
+- 💾 **Automated Backups**: Daily backups of player profiles using GitHub Actions, storing them as artifacts in the repository. This allows you to restore player profiles in case of profile corruption or data loss.
+- 🌐 **Remote Deploys**: Deploys can either be triggered locally or remotely via GitHub Actions, allowing you to manage the server from anywhere.
+
+And probably the best part, it's really cheap! See the [Cost](#cost) section for more details, but spoiler: my bill has been waived every month so far as it never goes over $5. 💸
 
 ## Setup
 
