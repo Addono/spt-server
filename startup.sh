@@ -48,7 +48,7 @@ else
     echo "No Lotus build-config directory found, skipping that step."
 fi
 
-# Remove all .exe files from the mods directory
+# Remove all .exe files from the mods directory to save space
 echo "Removing Windows executable (.exe) files from mods directory..."
 EXE_COUNT=0
 while IFS= read -r exe_file; do
