@@ -2,6 +2,15 @@
 
 This repository helps creating and managing an SPT server on [Fly.io](https://fly.io).
 
+## Table of Contents
+- [What's Included](#whats-included)
+- [Setup](#setup)
+  - [Fly.io](#flyio)
+  - [GitHub Repository](#optional-github-repository)
+  - [GitHub Actions](#optional-github-actions)
+    - [Backups](#backups)
+- [Cost](#cost)
+
 ## What's Included
 
 This repository provides a simple setup for hosting a modded SPT (Single Player Tarkov) server on Fly.io. It automates deployment, mod management, scaling, and backups, making it easy to run and maintain a custom Tarkov server in the cloud with minimal manual intervention and on a budget.
@@ -98,4 +107,3 @@ You can tweak the resources available to the server in the `fly.toml` file, for 
 The only constant-cost would be storage, which is a couple of cents per GB per month.
 
 In our experiences, our bill has been around $2-3 a month. Fly.io typically doesn't invoice you for bills under $5 each month, thus the server has effectively been free.
-
