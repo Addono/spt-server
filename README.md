@@ -3,14 +3,24 @@
 This repository helps creating and managing an SPT server on [Fly.io](https://fly.io).
 
 ## Table of Contents
-- [What's Included](#whats-included)
-- [Setup](#setup)
-  - [Fly.io](#flyio)
-  - [GitHub Repository](#optional-github-repository)
-  - [GitHub Actions](#optional-github-actions)
-    - [Backups](#backups)
-- [Cost](#cost)
-- [Customizing Your Server](#customizing-your-server)
+- [SPT Server](#spt-server)
+  - [Table of Contents](#table-of-contents)
+  - [What's Included](#whats-included)
+  - [Setup](#setup)
+    - [Fly.io](#flyio)
+    - [(Optional) GitHub Repository](#optional-github-repository)
+    - [(Optional) GitHub Actions](#optional-github-actions)
+      - [Backups](#backups)
+  - [Cost](#cost)
+  - [Customizing Your Server](#customizing-your-server)
+    - [Adding or Removing Mods](#adding-or-removing-mods)
+    - [Changing the SPT Version](#changing-the-spt-version)
+    - [Changing the Fika Version](#changing-the-fika-version)
+    - [Changing Server Resources and Provisioning](#changing-server-resources-and-provisioning)
+      - [Adjusting Resources (CPU \& Memory)](#adjusting-resources-cpu--memory)
+      - [Always-On vs. Scale-to-Zero](#always-on-vs-scale-to-zero)
+      - [Enabling Swap (Extra Memory)](#enabling-swap-extra-memory)
+  - [References](#references)
 
 ## What's Included
 
@@ -190,11 +200,15 @@ You can enable swap to provide extra (slower) memory, which can help avoid out-o
 - **Note:** Swap is not compatible with scale-to-zero (suspend mode). Only enable swap if your server is always on.
 - **Tradeoff:** Swap is slower than RAM but can prevent crashes due to memory exhaustion. Useful for mod-heavy servers.
 
----
+## References
 
-For more details, see the comments in `fly.toml` and the [Fly.io documentation](https://fly.io/docs/reference/configuration/).
+- [Fly.io Documentation](https://fly.io/docs/reference/configuration/)
+- [fika-spt-server-docker GitHub Repository](https://github.com/zhliau/fika-spt-server-docker)
+- [Fika Project Wiki](https://project-fika.gitbook.io/wiki)
+- [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
+- [Bash Scripting Guide](https://www.gnu.org/software/bash/manual/bash.html)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [TOML Language Documentation](https://toml.io/en/)
+- [Linux Command Line Basics](https://ubuntu.com/tutorials/command-line-for-beginners)
 
-For more advanced customizations, you can also provide custom mod configuration files in the `mount/user/mods/` directory. These will be automatically copied to the server on deployment.
-
-See the rest of this README and the codebase for more details on configuration and customization options.
-
+For more details, see the comments in `fly.toml` and the rest of this README and codebase for configuration and customization options.
