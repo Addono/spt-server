@@ -41,9 +41,19 @@ And probably the best part, it's really cheap! See the [Cost](#cost) section for
 
 ### (Optional) GitHub Repository
 
+> [!NOTE]
+> In case you do not want to use GitHub, you can just download this repository and work on it locally:
+>
+> <img width="200" alt="image" src="https://github.com/user-attachments/assets/71be58ec-8491-4742-a041-87e69cf04d78" />
+>
+> Skip this step and go straight to the step on [deploying to Fly.io](#flyio). 
+
+
 If you want to use this repository as a template for your own SPT server, you can fork this repository and store any changes you make in your fork. Using GitHub (or Git in general) is optional, but recommended if you want to keep track of changes or contribute back to the original repository.
 
-Login to GitHub and click on the fork-button on the top right of the page. This will create a copy of this repository in your GitHub account.
+Login to GitHub and click on the fork-button on the top right of the page. This will create a copy of this repository in your GitHub account. 
+
+<img width="333" alt="image" src="https://github.com/user-attachments/assets/b549f636-7304-43c3-8c0d-646f7931ea97" />
 
 Alternatively, if you have the GitHub CLI installed, you can fork the repository using the following command:
 
