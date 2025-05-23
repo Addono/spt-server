@@ -21,6 +21,7 @@ This repository helps creating and managing an SPT server on [Fly.io](https://fl
       - [Always-On vs. Scale-to-Zero](#always-on-vs-scale-to-zero)
       - [Enabling Swap (Extra Memory)](#enabling-swap-extra-memory)
   - [References](#references)
+  - [Contributing](#contributing)
 
 ## What's Included
 
@@ -223,3 +224,7 @@ You can enable swap to provide extra (slower) memory, which can help avoid out-o
 - [Linux Command Line Basics](https://ubuntu.com/tutorials/command-line-for-beginners)
 
 For more details, see the comments in `fly.toml` and the rest of this README and codebase for configuration and customization options.
+
+## Contributing
+
+Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for detailed guidelines on how to contribute, including the process for submitting issues and merge requests.
