@@ -1,4 +1,4 @@
-# SPT Server
+# SPT Server on Fly.io
 
 This repository helps creating and managing an SPT server on [Fly.io](https://fly.io).
 
