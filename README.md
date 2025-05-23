@@ -7,8 +7,8 @@ This repository helps creating and managing an SPT server on [Fly.io](https://fl
   - [Table of Contents](#table-of-contents)
   - [What's Included](#whats-included)
   - [Setup](#setup)
-    - [Fly.io](#flyio)
     - [(Optional) GitHub Repository](#optional-github-repository)
+    - [Fly.io](#flyio)
     - [(Optional) GitHub Actions](#optional-github-actions)
       - [Backups](#backups)
   - [Cost](#cost)
@@ -38,6 +38,18 @@ Among other things, it includes:
 And probably the best part, it's really cheap! See the [Cost](#cost) section for more details, but spoiler: my bill has been waived every month so far as it never goes over $5. 💸
 
 ## Setup
+
+### (Optional) GitHub Repository
+
+If you want to use this repository as a template for your own SPT server, you can fork this repository and store any changes you make in your fork. Using GitHub (or Git in general) is optional, but recommended if you want to keep track of changes or contribute back to the original repository.
+
+Login to GitHub and click on the fork-button on the top right of the page. This will create a copy of this repository in your GitHub account.
+
+Alternatively, if you have the GitHub CLI installed, you can fork the repository using the following command:
+
+```bash
+gh repo fork Addono/spt-server
+```
 
 ### Fly.io
 
@@ -76,19 +88,6 @@ Connecting to <your server IP>... complete
 root@<machine ID>:/opt/server# cd mod_download/remains/
 ```
 Any files in this folder are mods that have not been successfully downloaded or extracted. Manually move them to the `./mods` folder to make them available to the server. For more information on how to manage mods, see [fika-spt-server-docker](https://github.com/zhliau/fika-spt-server-docker?tab=readme-ov-file#-running) documentation.
-
-
-### (Optional) GitHub Repository
-
-If you want to use this repository as a template for your own SPT server, you can fork this repository and store any changes you make in your fork. This is optional, but recommended if you want to keep track of changes or contribute back to the original repository.
-
-Login to GitHub and click on the fork-button on the top right of the page. This will create a copy of this repository in your GitHub account.
-
-Alternatively, if you have the GitHub CLI installed, you can fork the repository using the following command:
-
-```bash
-gh repo fork Addono/spt-server
-```
 
 ### (Optional) GitHub Actions
 
