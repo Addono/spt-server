@@ -1,5 +1,5 @@
 # Build the main image
-FROM ghcr.io/zhliau/fika-spt-server-docker:3.11.4
+FROM ghcr.io/zhliau/fika-spt-server-docker:4.0.2
 
 # Install additional tools which help when SSHing into the server
 RUN apt-get update && \
